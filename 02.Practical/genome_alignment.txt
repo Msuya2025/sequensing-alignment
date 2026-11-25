@@ -1,0 +1,22 @@
+## STEPS FOR SEQUENCE ALIGNMENT####
+
+1.Index reference sequence
+ bwa index path/to/reference.fasta
+ 
+2. Map reads to reference
+	bwa mem path/to/reference path/to/read1 path/to/read2 > sample.sam
+3.convert sam file to bam
+ Samtools view -O BAM sample.bam sample.sam
+ 
+4. sort the bam file
+ samtools sort sample.bam > sample.sorted.bam
+ 
+5. index bam file
+samtools index sample.sorted.bam
+
+6. statistics
+	samtools stats sample.sorted.bam > sample.map.stats
+
+6. Mark duplicates (explore)
+
+ 
